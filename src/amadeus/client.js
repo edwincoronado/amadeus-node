@@ -1,5 +1,5 @@
-import EventEmitter from 'events';
-import util         from 'util';
+import EventEmitter from './client/events';
+import util         from './client/util';
 
 import AccessToken from './client/access_token';
 import Listener    from './client/listener';

@@ -205,4 +205,5 @@ Amadeus.direction = {
   departing: 'DEPARTING'
 };
 
+
 export default Amadeus;

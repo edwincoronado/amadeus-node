@@ -1,5 +1,5 @@
-import https     from 'https';
-import http      from 'http';
+
+import http      from './http';
 
 const HOSTS = {
   'test'       : 'test.api.amadeus.com',
@@ -69,7 +69,7 @@ class Validator {
   }
 
   initializeHttp(client, options) {
-    let network = client.ssl ? https : http;
+    let network = http;
     client.http = this.initOptional('http', options, network);
   }
 

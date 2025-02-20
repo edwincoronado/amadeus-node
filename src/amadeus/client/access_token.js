@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import EventEmitter from './events';
 
 // The number of seconds before the token expires, when
 // we will already try to refresh it

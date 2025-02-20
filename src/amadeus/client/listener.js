@@ -1,5 +1,5 @@
 import Response from './response';
-import util     from 'util';
+import util     from './util';
 
 import {
   ServerError,

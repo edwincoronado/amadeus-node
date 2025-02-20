@@ -2,10 +2,9 @@
   "name": "amadeus",
   "version": "11.1.0",
   "description": "Node library for the Amadeus travel APIs",
-  "main": "lib/amadeus.js",
+  "main": "dist/index.js",
   "scripts": {
-    "prebuild": "npm run lint:src & npm run docs",
-    "build": "babel -d lib src/ -s inline",
+    "build": "ncc build src/amadeus.js -o dist",
     "build:watch": "watch 'npm run build' src",
     "prepublishOnly": "babel -d lib src/ -s inline",
     "pretest": "eslint spec",
@@ -18,7 +17,8 @@
     "docs:dev": "npm run docs:serve && npm run docs:watch",
     "lint:src": "eslint src",
     "lint:docs": "documentation lint src/**",
-    "console": "node -r ./lib/amadeus.js"
+    "console": "node -r ./lib/amadeus.js",
+    "postinstall": "patch-package"
   },
   "jest": {
     "verbose": true,
@@ -61,6 +61,8 @@
     "eslint": "^4.16.0",
     "jest": "^24.8.0",
     "merge": "^2.1.1",
+    "ncc": "^0.3.6",
+    "patch-package": "^8.0.0",
     "watch": "^1.0.2"
   },
   "dependencies": {
