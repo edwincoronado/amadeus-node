@@ -1,8 +1,8 @@
 import Amadeus from './dist/index.js';
 
 const amadeus = new Amadeus({
-  clientId: 'XQARYBAi3AOGZeS5Wzv4aPENE2mLgYaP',
-  clientSecret: 'bdiBG1e0if7FKGAS'
+  clientId: '-',
+  clientSecret: '-'
 });
 
 amadeus.shopping.flightOffersSearch.get({

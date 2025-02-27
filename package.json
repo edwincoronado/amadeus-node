@@ -1,10 +1,10 @@
 {
   "name": "@richard-bull/amadeus",
-  "version": "11.1.0-sn-beta.1",
-  "description": "Node library for the Amadeus travel APIs",
+  "version": "11.1.0-sn-beta.3",
+  "description": "Node library for the Amadeus travel APIs with ServiceNow compatibility",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
+    "build": "patch-package && rollup -c rollup.config.js",
     "build:watch": "watch 'npm run build' src",
     "prepublishOnly": "npm run build",
     "pretest": "eslint spec",
@@ -17,8 +17,7 @@
     "docs:dev": "npm run docs:serve && npm run docs:watch",
     "lint:src": "eslint src",
     "lint:docs": "documentation lint src/**",
-    "console": "node -r ./lib/amadeus.js",
-    "postinstall": "patch-package"
+    "console": "node -r ./lib/amadeus.js"
   },
   "jest": {
     "verbose": true,
@@ -26,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amadeus4dev/amadeus-node.git"
+    "url": "git+https://github.com/richallanb/amadeus-node.git"
   },
   "keywords": [
     "amadeus",
@@ -39,7 +38,7 @@
   "author": "amadeus-developer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amadeus4dev/amadeus-node/issues"
+    "url": "https://github.com/richallanb/amadeus-node/issues"
   },
   "homepage": "https://developers.amadeus.com",
   "contributors": [
