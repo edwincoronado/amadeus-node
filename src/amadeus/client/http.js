@@ -1,3 +1,5 @@
+import { RESTMessageV2 } from '@servicenow/glide/sn_ws';
+
 /* eslint-disable */
 const http = (() => {
   class ClientRequest {
@@ -43,23 +45,35 @@ const http = (() => {
           ? undefined
           : this.bodyChunks.join("");
 
-      fetch(url, { method, headers, body })
-        .then(async (res) => {
-          const text = await res.text();
-          const response = {
-            statusCode: res.status,
-            headers: Object.fromEntries(res.headers.entries()),
-            setEncoding: () => {},
-            on: (event, handler) => {
-              if (event === "data") handler(text);
-              if (event === "end") handler();
-            },
-          };
-          emit("response", response);
-        })
-        .catch((err) => {
-          emit("error", err);
-        });
+      try {
+        const request = new RESTMessageV2();
+        request.setEndpoint(url);
+        request.setHttpMethod(method);
+        for (const [key, value] of Object.entries(headers)) {
+          request.setRequestHeader(key.toLowerCase(), value);
+        }
+        if (body) {
+          request.setRequestBody(body);
+        }
+        const res = request.execute();
+        const text = res.getBody();
+        const resHeaders = res.getAllHeaders().reduce((list, header) => {
+          list[header.name.toLowerCase()] = header.value
+          return list;
+        }, {});
+        const response = {
+          statusCode: res.getStatusCode(),
+          headers: resHeaders,
+          setEncoding: () => {},
+          on: (event, handler) => {
+            if (event === "data") handler(text);
+            if (event === "end") handler();
+          },
+        };
+        emit("response", response);
+      } catch (e) {
+        emit("error", e);
+      }
     }
   }
 
@@ -96,4 +110,4 @@ const http = (() => {
   return { request };
 })();
 
-module.exports = http;
+export default http;

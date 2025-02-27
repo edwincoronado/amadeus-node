@@ -4,7 +4,7 @@
   "description": "Node library for the Amadeus travel APIs",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/amadeus.js -o dist",
+    "build": "rollup -c rollup.config.js",
     "build:watch": "watch 'npm run build' src",
     "prepublishOnly": "babel -d lib src/ -s inline",
     "pretest": "eslint spec",
@@ -55,15 +55,19 @@
     "@babel/cli": "^7.18.6",
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
+    "@servicenow/glide": "26.0.1",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-preset-env": "^1.7.0",
     "documentation": "^13.2.5",
     "eslint": "^4.16.0",
     "jest": "^24.8.0",
     "merge": "^2.1.1",
-    "ncc": "^0.3.6",
     "patch-package": "^8.0.0",
-    "watch": "^1.0.2"
+    "rollup": "^4.34.8",
+    "watch": "^1.0.2",
+    "@rollup/plugin-node-resolve": "16.0.0",
+    "@rollup/plugin-commonjs": "28.0.2",
+    "@rollup/plugin-json": "6.1.0"
   },
   "dependencies": {
     "qs": "^6.11.0"
