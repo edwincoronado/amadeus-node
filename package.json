@@ -1,12 +1,12 @@
 {
-  "name": "amadeus",
-  "version": "11.1.0",
+  "name": "@richard-bull/amadeus",
+  "version": "11.1.0-sn-beta.1",
   "description": "Node library for the Amadeus travel APIs",
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "build:watch": "watch 'npm run build' src",
-    "prepublishOnly": "babel -d lib src/ -s inline",
+    "prepublishOnly": "npm run build",
     "pretest": "eslint spec",
     "test": "jest spec --coverage --collectCoverageFrom=src/**/*.js",
     "test:watch": "watch 'npm test' src spec",
