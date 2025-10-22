@@ -4,7 +4,7 @@
   "description": "Node library for the Amadeus travel APIs with ServiceNow compatibility",
   "main": "dist/index.js",
   "scripts": {
-    "build": "patch-package && rollup -c rollup.config.js",
+    "build": "ncc build src/amadeus.js -o dist",
     "build:watch": "watch 'npm run build' src",
     "prepublishOnly": "npm run build",
     "pretest": "eslint spec",
@@ -60,12 +60,9 @@
     "eslint": "^4.16.0",
     "jest": "^24.8.0",
     "merge": "^2.1.1",
+    "ncc": "^0.3.6",
     "patch-package": "^8.0.0",
-    "rollup": "^4.34.8",
-    "watch": "^1.0.2",
-    "@rollup/plugin-node-resolve": "16.0.0",
-    "@rollup/plugin-commonjs": "28.0.2",
-    "@rollup/plugin-json": "6.1.0"
+    "watch": "^1.0.2"
   },
   "dependencies": {
     "qs": "^6.11.0"

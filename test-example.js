@@ -6,10 +6,10 @@ const amadeus = new Amadeus({
 });
 
 amadeus.shopping.flightOffersSearch.get({
-  originLocationCode: 'SYD',
-  destinationLocationCode: 'BKK',
-  departureDate: '2025-06-01',
-  adults: '2'
+    originLocationCode: 'SYD',
+    destinationLocationCode: 'BKK',
+    departureDate: '2025-06-01',
+    adults: '2'
 }).then(function(response){
   console.log(response);
 }).catch(function(responseError){

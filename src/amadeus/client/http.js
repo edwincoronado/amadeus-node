@@ -49,7 +49,7 @@ const http = (() => {
           const response = {
             statusCode: res.status,
             headers: Object.fromEntries(res.headers.entries()),
-            setEncoding: () => { },
+            setEncoding: () => {},
             on: (event, handler) => {
               if (event === "data") handler(text);
               if (event === "end") handler();
@@ -96,4 +96,4 @@ const http = (() => {
   return { request };
 })();
 
-export default http;
+module.exports = http;
