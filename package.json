@@ -1,6 +1,6 @@
 {
-  "name": "@richard-bull/amadeus",
-  "version": "11.1.0-sn-beta.3",
+  "name": "@edwincoronado/amadeus",
+  "version": "11.1.0-sn-beta.4",
   "description": "Node library for the Amadeus travel APIs with ServiceNow compatibility",
   "main": "dist/index.js",
   "scripts": {
@@ -54,7 +54,6 @@
     "@babel/cli": "^7.18.6",
     "@babel/core": "^7.18.6",
     "@babel/preset-env": "^7.18.6",
-    "@servicenow/glide": "26.0.1",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-preset-env": "^1.7.0",
     "documentation": "^13.2.5",

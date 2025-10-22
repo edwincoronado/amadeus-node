@@ -11,7 +11,6 @@ module.exports = {
     format: 'es',
     interop: 'compat'
   },
-  external: ['@servicenow/glide/sn_ws', '@servicenow/glide'],
   plugins: [
     commonJs(),
     nodeResolve(),
